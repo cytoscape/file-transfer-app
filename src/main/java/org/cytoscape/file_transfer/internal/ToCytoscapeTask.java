@@ -15,9 +15,9 @@ import org.cytoscape.work.json.JSONResult;
 
 import com.google.gson.Gson;
 
-public class ToCytoscape extends AbstractTask implements ObservableTask {
+public class ToCytoscapeTask extends AbstractTask implements ObservableTask {
 	
-	public ToCytoscape(){
+	public ToCytoscapeTask(){
 		super();
 	}
 	

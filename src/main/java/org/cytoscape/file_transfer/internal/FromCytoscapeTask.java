@@ -18,34 +18,39 @@ import org.cytoscape.work.json.JSONResult;
 
 import com.google.gson.Gson;
 
-public class FromCytoscape extends AbstractTask implements ObservableTask {
+public class FromCytoscapeTask extends AbstractTask implements ObservableTask {
 	
-	public FromCytoscape(){
+	private File sandboxParentDirFile;
+	
+	public FromCytoscapeTask(File sandboxParentDirFile) {
 		super();
+		this.sandboxParentDirFile = sandboxParentDirFile;
 	}
 	
 	@ProvidesTitle
-	public String getTitle() { return "Transfer file from Cytoscape"; }
+	public String getTitle() { return "Transfer file from a Cytoscape sandbox"; }
 
-	@Tunable (description="file", longDescription="The name of the file to read and return", exampleStringValue="test.png")
-	public String file = "";
+	@Tunable (description="sandboxName", longDescription="Name of sandbox containing file", exampleStringValue="mySandbox")
+	public String sandboxName = "";
+	
+	@Tunable (description="fileName", longDescription="Sandbox-relative name of file.", exampleStringValue="myFile.png")
+	public String fileName = "";
 	
 	private FromCytoscapeResult result;
 	
 	@Override
 	public void run(TaskMonitor taskMon) throws Exception {
-		if (file == null || file.length() == 0) {
-			throw new Exception("File name cannot be empty.");
+		File fileFile = SandboxUtils.getAbsFileFile(sandboxParentDirFile, sandboxName, fileName, false);
+		if (fileFile.exists() && !fileFile.isFile()) {
+			throw new Exception("'" + fileName + "' must identify a file, not a directory, in sandbox '" + sandboxName + "'.");
 		}
 
 		try {
-			File f = new File(file);
-			SimpleDateFormat s = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss.SSSS");
-			String modifiedTime = s.format(new Date(f.lastModified()));
+			String modifiedTime = SandboxUtils.getModifiedTime(fileFile); 
 			
-			taskMon.setStatusMessage("Reading file " + file);
-			
-			byte[] allBytes = Files.readAllBytes(Paths.get(file));
+			taskMon.setStatusMessage("Reading file " + fileFile.getName());
+
+			byte[] allBytes = Files.readAllBytes(Paths.get(fileFile.getCanonicalPath()));
 			long fileByteCount = allBytes.length;
 			String fileBase64 = new String(Base64.encodeBase64(allBytes), StandardCharsets.UTF_8);
 

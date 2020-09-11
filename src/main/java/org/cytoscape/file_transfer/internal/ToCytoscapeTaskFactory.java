@@ -14,6 +14,6 @@ public class ToCytoscapeTaskFactory extends AbstractTaskFactory{
 	}
 	
 	public TaskIterator createTaskIterator() {
-		return new TaskIterator(new ToCytoscape());
+		return new TaskIterator(new ToCytoscapeTask());
 	}
 }
