@@ -40,12 +40,12 @@ Cytoscape. The default sandbox is ``default_sandbox``, though
 a Notebook can create other sandboxes. The following operations are
 defined for sandboxes::
 
-setSandbox - defines a new sandbox for subsequent operations
-remoteSandbox - deletes a sandbox and its contents
-getFileInfo - gets metadata for a file/directory in a sandbox
-removeFile - removes a file/directory in a sandbox
-toSandbox - copies a file from the Notebook's file system to a sandbox
-fromSandbox - copies a sandbox file to the Notebook's file system
+	**setSandbox** - defines a new sandbox for subsequent operations
+	**remoteSandbox** - deletes a sandbox and its contents
+	**getFileInfo** - gets metadata for a file/directory in a sandbox
+	**removeFile** - removes a file/directory in a sandbox
+	**toSandbox** - copies a file from the Notebook's file system to a sandbox
+	**fromSandbox** - copies a sandbox file to the Notebook's file system
 
 While named sandboxes are implemented as subdirectories of the
 workstation's CytoscapeConfiguration/filetransfer folder, Notebooks
