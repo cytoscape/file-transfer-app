@@ -2,7 +2,7 @@
 The FileTransfer app is intended to support workflow execution in 
 a Notebook executing on a remote server. Such Notebooks can be
 written in Python (via [py4cytoscape]
-(https://github.com/cytoscape/py4cytoscape)) 
+(https://github.com/cytoscape/py4cytoscape) ) 
 or other languages when/if such support becomes available for them.
 To execute a workflow, a remote Notebook must have bi-directional
 communication with a workstation-based Cytoscape instance. The 
