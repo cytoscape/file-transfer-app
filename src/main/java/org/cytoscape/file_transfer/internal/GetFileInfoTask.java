@@ -25,6 +25,9 @@ public class GetFileInfoTask extends CyRESTAbstractTask {
 	
 	@Override
 	public void run(TaskMonitor taskMon) throws Exception {
+		System.out.println("sandboxName: " + sandboxName);
+		System.out.println("fileName: " + fileName);
+
 		File fileFile = SandboxUtils.getAbsFileFile(sandboxParentDirFile, sandboxName, fileName, true);
 		String modifiedTime = SandboxUtils.getModifiedTime(fileFile);
 		boolean isFile = modifiedTime.length() != 0 && fileFile.isFile();

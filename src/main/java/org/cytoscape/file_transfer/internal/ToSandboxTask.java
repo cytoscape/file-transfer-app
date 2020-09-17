@@ -40,6 +40,13 @@ public class ToSandboxTask extends CyRESTAbstractTask {
 	@Override
 	public void run(TaskMonitor taskMon) throws Exception {
 		File fileFile = SandboxUtils.getAbsFileFile(sandboxParentDirFile, sandboxName, fileName, false);
+//		System.out.println("sandboxName: " + sandboxName);
+//		System.out.println("fileName: " + fileName);
+//		System.out.println("fileBase64Len: " + fileBase64.length());
+//		System.out.println("fileByteCount: " + fileByteCount);
+//		System.out.println("overwrite: " + overwrite);
+//		System.out.println("fileBase64: " + fileBase64);
+		
 		if (fileFile.exists()) {
 			if (overwrite) {
 				try {

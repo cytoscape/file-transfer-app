@@ -32,12 +32,16 @@ public class SandboxUtils {
 	}
 	
 	public static final File getAbsFileFile(File sandboxParentDirFile, String sandboxName, String fileName, boolean allowSandboxOnly) throws Exception {
-		File sandboxDirFile = SandboxUtils.getAbsSandboxFile(sandboxParentDirFile, sandboxName);
-		
 		if (fileName == null || fileName.trim().length() == 0) {
 			throw new Exception("File name cannot be empty.");			
 		}
 
+		if (sandboxName == null || sandboxName.trim().length() == 0) {
+			return new File(fileName);
+		}
+		
+		File sandboxDirFile = SandboxUtils.getAbsSandboxFile(sandboxParentDirFile, sandboxName);
+		
 		if (allowSandboxOnly && fileName.trim().equals(".")) {
 			return sandboxDirFile; // Allow check to see if sandbox exists
 		}
