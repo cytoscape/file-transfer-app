@@ -36,8 +36,9 @@ public class SandboxUtils {
 			throw new Exception("File name cannot be empty.");			
 		}
 
+		// If there is a sandbox, an absolute path can't be used to escape it
 		if (sandboxName == null || sandboxName.trim().length() == 0) {
-			return new File(fileName);
+			return new File(fileName); // No sandbox ... all paths are allowed
 		}
 		
 		File sandboxDirFile = SandboxUtils.getAbsSandboxFile(sandboxParentDirFile, sandboxName);
@@ -48,6 +49,7 @@ public class SandboxUtils {
 
 		File fileFile = new File(sandboxDirFile, fileName);
 		
+		// Check to make sure that ".." didn't escape sandbox
 		String sandboxPath = sandboxDirFile.getCanonicalPath() + File.separator;
 		String filePath = fileFile.getCanonicalPath();
 		if (filePath.startsWith(sandboxPath)) {
