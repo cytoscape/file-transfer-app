@@ -47,7 +47,7 @@ public class CyActivator extends AbstractCyActivator {
 		fromSandboxProperties.setProperty(COMMAND_EXAMPLE_JSON, FromSandboxTask.getExample());
 		fromSandboxProperties.setProperty(COMMAND_SUPPORTS_JSON, "true");
 		fromSandboxProperties.setProperty(PREFERRED_MENU, "Transfer");
-		fromSandboxProperties.setProperty(IN_MENU_BAR, "true");
+		fromSandboxProperties.setProperty(IN_MENU_BAR, "false");
 		fromSandboxProperties.setProperty(IN_CONTEXT_MENU, "false");
 		fromSandboxProperties.setProperty(TITLE, "From Sandbox");
 		fromSandboxProperties.setProperty(TOOLTIP,  FromSandboxTaskFactory.DESCRIPTION);
@@ -64,7 +64,7 @@ public class CyActivator extends AbstractCyActivator {
 		toSandboxProperties.setProperty(COMMAND_EXAMPLE_JSON, ToSandboxTask.getExample());
 		toSandboxProperties.setProperty(COMMAND_SUPPORTS_JSON, "true");
 		toSandboxProperties.setProperty(PREFERRED_MENU, "Transfer");
-		toSandboxProperties.setProperty(IN_MENU_BAR, "true");
+		toSandboxProperties.setProperty(IN_MENU_BAR, "false");
 		toSandboxProperties.setProperty(IN_CONTEXT_MENU, "false");
 		toSandboxProperties.setProperty(TITLE, "To Sandbox");
 		toSandboxProperties.setProperty(TOOLTIP, ToSandboxTaskFactory.DESCRIPTION);
@@ -81,7 +81,7 @@ public class CyActivator extends AbstractCyActivator {
 		setSandboxProperties.setProperty(COMMAND_EXAMPLE_JSON, SetSandboxTask.getExample());
 		setSandboxProperties.setProperty(COMMAND_SUPPORTS_JSON, "true");
 		setSandboxProperties.setProperty(PREFERRED_MENU, "Transfer");
-		setSandboxProperties.setProperty(IN_MENU_BAR, "true");
+		setSandboxProperties.setProperty(IN_MENU_BAR, "false");
 		setSandboxProperties.setProperty(IN_CONTEXT_MENU, "false");
 		setSandboxProperties.setProperty(TITLE, "Set Sandbox");
 		setSandboxProperties.setProperty(TOOLTIP, SetSandboxTaskFactory.DESCRIPTION);
@@ -98,7 +98,7 @@ public class CyActivator extends AbstractCyActivator {
 		removeSandboxProperties.setProperty(COMMAND_EXAMPLE_JSON, RemoveSandboxTask.getExample());
 		removeSandboxProperties.setProperty(COMMAND_SUPPORTS_JSON, "true");
 		removeSandboxProperties.setProperty(PREFERRED_MENU, "Transfer");
-		removeSandboxProperties.setProperty(IN_MENU_BAR, "true");
+		removeSandboxProperties.setProperty(IN_MENU_BAR, "false");
 		removeSandboxProperties.setProperty(IN_CONTEXT_MENU, "false");
 		removeSandboxProperties.setProperty(TITLE, "Remove Sandbox");
 		removeSandboxProperties.setProperty(TOOLTIP, RemoveSandboxTaskFactory.DESCRIPTION);
@@ -115,7 +115,7 @@ public class CyActivator extends AbstractCyActivator {
 		getFileInfoProperties.setProperty(COMMAND_EXAMPLE_JSON, GetFileInfoTask.getExample());
 		getFileInfoProperties.setProperty(COMMAND_SUPPORTS_JSON, "true");
 		getFileInfoProperties.setProperty(PREFERRED_MENU, "Transfer");
-		getFileInfoProperties.setProperty(IN_MENU_BAR, "true");
+		getFileInfoProperties.setProperty(IN_MENU_BAR, "false");
 		getFileInfoProperties.setProperty(IN_CONTEXT_MENU, "false");
 		getFileInfoProperties.setProperty(TITLE, "getFileInfo");
 		getFileInfoProperties.setProperty(TOOLTIP,  GetFileInfoTaskFactory.DESCRIPTION);
@@ -132,7 +132,7 @@ public class CyActivator extends AbstractCyActivator {
 		removeFileProperties.setProperty(COMMAND_EXAMPLE_JSON, RemoveFileTask.getExample());
 		removeFileProperties.setProperty(COMMAND_SUPPORTS_JSON, "true");
 		removeFileProperties.setProperty(PREFERRED_MENU, "Transfer");
-		removeFileProperties.setProperty(IN_MENU_BAR, "true");
+		removeFileProperties.setProperty(IN_MENU_BAR, "false");
 		removeFileProperties.setProperty(IN_CONTEXT_MENU, "false");
 		removeFileProperties.setProperty(TITLE, "Remove File");
 		removeFileProperties.setProperty(TOOLTIP,  RemoveFileTaskFactory.DESCRIPTION);
