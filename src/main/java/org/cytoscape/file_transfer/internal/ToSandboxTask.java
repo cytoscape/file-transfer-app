@@ -67,6 +67,7 @@ public class ToSandboxTask extends CyRESTAbstractTask {
 		}
 		
 		taskMon.setStatusMessage("Writing file " + fileName);
+		fileFile.getParentFile().mkdirs(); // be sure all (if any) parent directories are created
 		String filePath = fileFile.getCanonicalPath();
 		Files.write(Paths.get(filePath), fileRaw);
 		

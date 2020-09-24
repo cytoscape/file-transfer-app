@@ -42,6 +42,10 @@ public class SandboxUtils {
 		}
 		
 		File sandboxDirFile = SandboxUtils.getAbsSandboxFile(sandboxParentDirFile, sandboxName);
+		String sandboxPath = sandboxDirFile.getCanonicalPath() + File.separator;
+		if (!sandboxDirFile.exists()) {
+			throw new Exception("Sandbox '" + sandboxPath + "' doesn't exist");
+		}
 		
 		if (allowSandboxOnly && fileName.trim().equals(".")) {
 			return sandboxDirFile; // Allow check to see if sandbox exists
@@ -50,7 +54,6 @@ public class SandboxUtils {
 		File fileFile = new File(sandboxDirFile, fileName);
 		
 		// Check to make sure that ".." didn't escape sandbox
-		String sandboxPath = sandboxDirFile.getCanonicalPath() + File.separator;
 		String filePath = fileFile.getCanonicalPath();
 		if (filePath.startsWith(sandboxPath)) {
 			return fileFile;
