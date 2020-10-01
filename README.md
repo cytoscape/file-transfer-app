@@ -78,8 +78,12 @@ to discover these functions and their details is to browse the
 ``filetransfer`` Swagger pages available off the Cytoscape 
 **Help | Automation | CyREST API Commands** menu.
 
+Additionally, the py4cytoscape user documentation contains sections 
+on [general Sandbox use](https://py4cytoscape.readthedocs.io/en/latest/concepts.html#sandboxing) and calling [specific Sandbox functions](https://py4cytoscape.readthedocs.io/en/latest/reference/sandbox.html).
+
 ## Notes
-Note that the File Transfer app is required for all py4cytoscape
-operations.
+Note that this app is *not* necessary for py4cytoscape to communicate with Cytoscape, 
+but *is* necessary for the Sandbox features needed by Jupyter Notebooks
+running on a remote server.
 
 	
