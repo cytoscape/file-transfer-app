@@ -83,7 +83,7 @@ on [general Sandbox use](https://py4cytoscape.readthedocs.io/en/latest/concepts.
 
 ## Notes
 Note that this app is *not* necessary for py4cytoscape to communicate with Cytoscape, 
-but *is* necessary for the Sandbox features needed by Jupyter Notebooks
-running on a remote server.
+but *is* necessary for the Sandbox features needed by Notebooks
+running on either a workstation-based or remote Jupyter server.
 
 	
