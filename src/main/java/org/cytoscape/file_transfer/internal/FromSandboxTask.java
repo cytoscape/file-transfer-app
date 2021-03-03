@@ -31,7 +31,7 @@ public class FromSandboxTask extends CyRESTAbstractTask {
 	@ProvidesTitle
 	public String getTitle() { return "Transfer file from a sandbox"; }
 
-	@Tunable (description="sandboxName", longDescription="Name of sandbox containing file", exampleStringValue="mySandbox")
+	@Tunable (description="sandboxName", longDescription="Name of sandbox containing file", exampleStringValue="default_sandbox")
 	public String sandboxName = "";
 	
 	@Tunable (description="fileName", longDescription="Sandbox-relative name of file.", exampleStringValue="myFile.png")
@@ -68,6 +68,6 @@ public class FromSandboxTask extends CyRESTAbstractTask {
 	}	
 	
 	public static String getExample() {
-		return getJson(new FromSandboxResult("/User/CytoscapeConfiguration/FileTransfer/MySandbox/MyFile.png", "2020-07-29 03:00:00.0000", 10, "iVBORw0KGgoAAAANSUhEUgAABY="));
+		return getJson(new FromSandboxResult("/User/CytoscapeConfiguration/FileTransfer/default_sandbox/MyFile.png", "2020-07-29 03:00:00.0000", 10, "iVBORw0KGgoAAAANSUhEUgAABY="));
 	}
 }

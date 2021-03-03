@@ -27,7 +27,7 @@ public class GetFileInfoTask extends CyRESTAbstractTask {
 	@ProvidesTitle
 	public String getTitle() { return "Return metadata for a sandboxed file or directory"; }
 
-	@Tunable (description="sandboxName", longDescription="Name of sandbox containing file", exampleStringValue="mySandbox")
+	@Tunable (description="sandboxName", longDescription="Name of sandbox containing file", exampleStringValue="default_sandbox")
 	public String sandboxName = "";
 	
 	@Tunable (description="fileName", longDescription="Sandbox-relative name of file or directory.", exampleStringValue="myFile.png")
@@ -53,6 +53,6 @@ public class GetFileInfoTask extends CyRESTAbstractTask {
 	}
 	
 	public static String getExample() {
-		return getJson(new GetFileInfoResult("/User/CytoscapeConfiguration/FileTransfer/MySandbox/MyFile.png", "2020-07-29 03:00:00.0000", true));
+		return getJson(new GetFileInfoResult("/User/CytoscapeConfiguration/FileTransfer/default_sandbox/MyFile.png", "2020-07-29 03:00:00.0000", true));
 	}
 }

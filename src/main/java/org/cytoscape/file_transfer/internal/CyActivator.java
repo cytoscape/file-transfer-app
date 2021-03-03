@@ -71,7 +71,7 @@ public class CyActivator extends AbstractCyActivator {
 
 		TaskFactory fromSandboxTaskFactory = new FromSandboxTaskFactory(configDirFile);
 		registerAllServices(bc, fromSandboxTaskFactory, fromSandboxProperties);
-
+		
 		// Register toSandbox function
 		Properties toSandboxProperties = new Properties();
 		toSandboxProperties.setProperty(COMMAND_NAMESPACE, FILE_TRANSFER_COMMAND_NAMESPACE);
@@ -88,6 +88,23 @@ public class CyActivator extends AbstractCyActivator {
 
 		TaskFactory toSandboxTaskFactory = new ToSandboxTaskFactory(configDirFile);
 		registerAllServices(bc, toSandboxTaskFactory, toSandboxProperties);
+		
+		// Register urlToSandbox function
+		Properties urlToSandboxProperties = new Properties();
+		urlToSandboxProperties.setProperty(COMMAND_NAMESPACE, FILE_TRANSFER_COMMAND_NAMESPACE);
+		urlToSandboxProperties.setProperty(COMMAND, "urlToSandbox");
+		urlToSandboxProperties.setProperty(COMMAND_DESCRIPTION,  URLToSandboxTaskFactory.DESCRIPTION);
+		urlToSandboxProperties.setProperty(COMMAND_LONG_DESCRIPTION, URLToSandboxTaskFactory.LONG_DESCRIPTION);
+		urlToSandboxProperties.setProperty(COMMAND_EXAMPLE_JSON, URLToSandboxTask.getExample());
+		urlToSandboxProperties.setProperty(COMMAND_SUPPORTS_JSON, "true");
+//		urlToSandboxProperties.setProperty(PREFERRED_MENU, "Transfer");
+//		urlToSandboxProperties.setProperty(IN_MENU_BAR, "true");
+//		urlToSandboxProperties.setProperty(IN_CONTEXT_MENU, "false");
+//		urlToSandboxProperties.setProperty(TITLE, "URL To Sandbox");
+//		urlToSandboxProperties.setProperty(TOOLTIP, URLToSandboxTaskFactory.DESCRIPTION);
+
+		TaskFactory urlToSandboxTaskFactory = new URLToSandboxTaskFactory(configDirFile);
+		registerAllServices(bc, urlToSandboxTaskFactory, urlToSandboxProperties);
 		
 		// Register setSandbox function
 		Properties setSandboxProperties = new Properties();
@@ -155,7 +172,7 @@ public class CyActivator extends AbstractCyActivator {
 //		removeFileProperties.setProperty(TOOLTIP,  RemoveFileTaskFactory.DESCRIPTION);
 
 		TaskFactory removeFileTaskFactory = new RemoveFileTaskFactory(configDirFile);
-		registerAllServices(bc, removeFileTaskFactory, removeFileProperties);		
+		registerAllServices(bc, removeFileTaskFactory, removeFileProperties);
 	}
 }
 

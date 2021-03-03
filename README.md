@@ -47,6 +47,7 @@ defined for sandboxes:
 |  removeFile | removes a file/directory in a sandbox  |
 |  toSandbox | copies a file from the Notebook's file system to a sandbox  |
 |  fromSandbox | copies a sandbox file to the Notebook's file system |
+|  urlToSandbox | copies a file associated with a URL to a sandbox |
 
 While named sandboxes are implemented as subdirectories of the
 workstation's CytoscapeConfiguration/filetransfer folder, Notebooks
@@ -86,4 +87,22 @@ Note that this app is *not* necessary for py4cytoscape to communicate with Cytos
 but *is* necessary for the Sandbox features needed by Jupyter Notebooks
 running on a remote server.
 
+## Rebuilding
+
+Assuming you're developing under Eclipse, you can rebuild the project by performing a Mavan *install* operation:
+
+- In the Package Explorer panel on the top-left, click to expand ``file-transfer`` folder.
+
+- Right-click (or control-click if you're on a Mac) on the ``pom.xml`` file.
+
+- Save your work by using ``File | Save All``
+
+- Select ``Run As``.
+
+- Then select ``Maven install``.
+
+The resulting app will be in the ``file-transfer-xx.jar`` file in the project's main directory (where xx is the version declared in ``version`` attribute of the ``pom.xml`` file). You can test the new app in Cytoscape by copying it into the ``CytoscapeConfiguration/3/apps/installed`` directory. Be sure to first remove any previous app version from that directory.
+
+
+When Maven finishes building the app, you will see the Build success message in the Console tab, located at the bottom-center of Eclipse.
 	

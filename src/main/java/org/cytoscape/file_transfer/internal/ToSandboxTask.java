@@ -64,6 +64,15 @@ public class ToSandboxTask extends CyRESTAbstractTask {
 //		System.out.println("overwrite: " + overwrite);
 //		System.out.println("fileBase64: " + fileBase64);
 		
+		if (fileBase64 == null || fileBase64.length() == 0) {
+			throw new Exception("File content cannot be empty.");
+		}
+		
+		byte[] fileRaw = Base64.decodeBase64(fileBase64);
+		if (fileRaw.length != fileByteCount) {
+			throw new Exception("File '" + fileName + "' contains " + fileRaw.length + " bytes but should contain " + fileByteCount + " bytes");
+		}
+		
 		if (fileFile.exists()) {
 			if (overwrite) {
 				try {
@@ -72,15 +81,6 @@ public class ToSandboxTask extends CyRESTAbstractTask {
 			} else {
 				throw new Exception("'" + fileName + "' already exists.");
 			}
-		}
-
-		if (fileBase64 == null || fileBase64.length() == 0) {
-			throw new Exception("File content cannot be empty.");
-		}
-		
-		byte[] fileRaw = Base64.decodeBase64(fileBase64);
-		if (fileRaw.length != fileByteCount) {
-			throw new Exception("File '" + fileName + "' contains " + fileRaw.length + " bytes but should contain " + fileByteCount + " bytes");
 		}
 		
 		taskMon.setStatusMessage("Writing file " + fileName);

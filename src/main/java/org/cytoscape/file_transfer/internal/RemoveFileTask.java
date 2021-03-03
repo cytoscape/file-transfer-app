@@ -29,7 +29,7 @@ public class RemoveFileTask extends CyRESTAbstractTask {
 	@ProvidesTitle
 	public String getTitle() { return "Remove a sandboxed file or directory if one exists"; }
 
-	@Tunable (description="sandboxName", longDescription="Name of sandbox containing file", exampleStringValue="mySandbox")
+	@Tunable (description="sandboxName", longDescription="Name of sandbox containing file", exampleStringValue="default_sandbox")
 	public String sandboxName = "";
 	
 	@Tunable (description="fileName", longDescription="Sandbox-relative name of file or directory to delete.", exampleStringValue="myFile.png")
@@ -56,6 +56,6 @@ public class RemoveFileTask extends CyRESTAbstractTask {
 	}
 		
 	public static String getExample() {
-		return getJson(new RemoveFileResult("/User/CytoscapeConfiguration/FileTransfer/MySandbox/MyFile.png", true));
+		return getJson(new RemoveFileResult("/User/CytoscapeConfiguration/FileTransfer/default_sandbox/MyFile.png", true));
 	}
 }
