@@ -35,6 +35,7 @@ public class SetSandboxTaskFactory extends AbstractTaskFactory{
 	public SetSandboxTaskFactory(File sandboxParentDirFile, File cytoscapeInstallDirFile) {
 		super();
 		this.sandboxParentDirFile = sandboxParentDirFile;
+		this.cytoscapeInstallDirFile = cytoscapeInstallDirFile;
 	}
 	
 	public boolean isReady() {
