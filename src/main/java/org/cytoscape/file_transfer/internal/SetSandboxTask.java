@@ -42,7 +42,7 @@ public class SetSandboxTask extends CyRESTAbstractTask {
 	private File sandboxParentDirFile;
 	private File cytoscapeInstallDirFile;
 	
-	public SetSandboxTask(File sandboxParentDirFile, File cytoscapeInstallDirFile){
+	public SetSandboxTask(File sandboxParentDirFile, File cytoscapeInstallDirFile) {
 		super();
 		this.sandboxParentDirFile = sandboxParentDirFile;
 		this.cytoscapeInstallDirFile = cytoscapeInstallDirFile;
