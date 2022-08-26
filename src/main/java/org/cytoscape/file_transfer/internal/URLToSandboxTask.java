@@ -51,11 +51,16 @@ public class URLToSandboxTask extends CyRESTAbstractTask {
 	
 	@Override
 	public void run(TaskMonitor taskMon) throws Exception {
+		if (SandboxUtils.showDebug()) {
+			System.out.println("In URLToSandbox");
+			System.out.println(" sandboxName: " + sandboxName);
+			System.out.println(" fileName: " + fileName);
+			System.out.println(" sourceURL: " + sourceURL);
+			System.out.println(" overwrite: " + overwrite);
+			System.out.println(" sandboxParentDirFile: " + sandboxParentDirFile);
+		}
+
 		File fileFile = SandboxUtils.getAbsFileFile(sandboxParentDirFile, sandboxName, fileName, false);
-//		System.out.println("sandboxName: " + sandboxName);
-//		System.out.println("fileName: " + fileName);
-//		System.out.println("sourceURL: " + fileURL);
-//		System.out.println("overwrite: " + overwrite);
 		
 		if (sourceURL == null || sourceURL.trim().length() == 0) {
 			throw new Exception("Source URL cannot be null");
@@ -75,9 +80,13 @@ public class URLToSandboxTask extends CyRESTAbstractTask {
 		fileFile.getParentFile().mkdirs(); // be sure all (if any) parent directories are created
 		
 		String filePath = fileFile.getCanonicalPath();
-//		System.out.println("Downloading " + fileURL + " to " + filePath);
+		if (SandboxUtils.showDebug()) {
+			System.out.println(" Downloading " + sourceURL + " to " + filePath);
+		}
 		long length = new CloudURL(sourceURL).readFile(filePath);
-//		System.out.println("Downloaded " + length);
+		if (SandboxUtils.showDebug()) {
+			System.out.println(" Downloaded " + length);
+		}
 		
 		result = new URLToSandboxResult(filePath, length);
 	}

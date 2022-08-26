@@ -87,4 +87,10 @@ public class SandboxUtils {
 			return "";
 		}
 	}
+	
+	public static final boolean showDebug() {
+		String env_var = System.getenv().getOrDefault("CY_FILETRANSFER_DEBUG", "false");
+		
+		return env_var.toLowerCase().equals("true");
+	}
 }

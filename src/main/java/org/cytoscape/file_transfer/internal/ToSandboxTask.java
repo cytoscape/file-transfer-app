@@ -56,13 +56,17 @@ public class ToSandboxTask extends CyRESTAbstractTask {
 	
 	@Override
 	public void run(TaskMonitor taskMon) throws Exception {
+		if (SandboxUtils.showDebug()) {
+			System.out.println("In ToSandbox");
+			System.out.println(" sandboxName: " + sandboxName);
+			System.out.println(" fileName: " + fileName);
+			System.out.println(" fileBase64Len: " + fileBase64.length());
+			System.out.println(" fileByteCount: " + fileByteCount);
+			System.out.println(" overwrite: " + overwrite);
+			System.out.println(" sandboxParentDirFile: " + sandboxParentDirFile);
+		}
+
 		File fileFile = SandboxUtils.getAbsFileFile(sandboxParentDirFile, sandboxName, fileName, false);
-//		System.out.println("sandboxName: " + sandboxName);
-//		System.out.println("fileName: " + fileName);
-//		System.out.println("fileBase64Len: " + fileBase64.length());
-//		System.out.println("fileByteCount: " + fileByteCount);
-//		System.out.println("overwrite: " + overwrite);
-//		System.out.println("fileBase64: " + fileBase64);
 		
 		if (fileBase64 == null || fileBase64.length() == 0) {
 			throw new Exception("File content cannot be empty.");

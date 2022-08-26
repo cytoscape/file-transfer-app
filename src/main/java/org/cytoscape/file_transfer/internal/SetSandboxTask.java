@@ -50,6 +50,15 @@ public class SetSandboxTask extends CyRESTAbstractTask {
 	
 	@Override
 	public void run(TaskMonitor taskMon) throws Exception {
+		if (SandboxUtils.showDebug()) {
+			System.out.println("In SetSandbox");
+			System.out.println(" sandboxName: " + sandboxName);
+			System.out.println(" copySamples: " + copySamples);
+			System.out.println(" reinitialize: " + reinitialize);
+			System.out.println(" sandboxParentDirFile: " + sandboxParentDirFile);
+			System.out.println(" cytoscapeInstallDirFile: " + cytoscapeInstallDirFile);
+		}
+		
 		File sandboxDirFile = SandboxUtils.getAbsSandboxFile(sandboxParentDirFile, sandboxName);
 		
 		if (reinitialize) {

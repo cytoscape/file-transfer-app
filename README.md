@@ -87,6 +87,12 @@ Note that this app is *not* necessary for py4cytoscape to communicate with Cytos
 but *is* necessary for the Sandbox features needed by Notebooks
 running on either a workstation-based or remote Jupyter server.
 
+## Debugging
+By default, this app does not generate any debug output. However, it is possible to enable
+debug output on the terminal (not the framework log) by setting the CY_FILETRANSFER_DEBUG environment
+variable to TRUE. In this situation, parameters and global variables will be written to the 
+terminal whenever a Sandbox function is called.
+
 ## Rebuilding
 
 Assuming you're developing under Eclipse, you can rebuild the project by performing a Mavan *install* operation:

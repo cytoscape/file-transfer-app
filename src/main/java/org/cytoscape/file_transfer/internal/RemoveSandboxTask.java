@@ -42,6 +42,12 @@ public class RemoveSandboxTask extends CyRESTAbstractTask {
 	
 	@Override
 	public void run(TaskMonitor taskMon) throws Exception {
+		if (SandboxUtils.showDebug()) {
+			System.out.println("In RemoveSandbox");
+			System.out.println(" sandboxName: " + sandboxName);
+			System.out.println(" sandboxParentDirFile: " + sandboxParentDirFile);
+		}
+
 		File sandboxDirFile = SandboxUtils.getAbsSandboxFile(sandboxParentDirFile, sandboxName);
 		String sandboxPath = sandboxDirFile.getCanonicalPath();
 

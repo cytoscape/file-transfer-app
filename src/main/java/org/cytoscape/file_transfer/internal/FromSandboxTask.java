@@ -46,6 +46,13 @@ public class FromSandboxTask extends CyRESTAbstractTask {
 	
 	@Override
 	public void run(TaskMonitor taskMon) throws Exception {
+		if (SandboxUtils.showDebug()) {
+			System.out.println("In FromSandbox");
+			System.out.println(" sandboxName: " + sandboxName);
+			System.out.println(" fileName: " + fileName);
+			System.out.println(" sandboxParentDirFile: " + sandboxParentDirFile);
+		}
+
 		File fileFile = SandboxUtils.getAbsFileFile(sandboxParentDirFile, sandboxName, fileName, false);
 		if (fileFile.exists() && !fileFile.isFile()) {
 			throw new Exception("'" + fileName + "' must identify a file, not a directory, in sandbox '" + sandboxName + "'.");
